@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCC NEET UG 2026 - Round 4 Exact SC Cutoff & Vacant Seats</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 25px;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 25px 35px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #002b5c;
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .summary-box {
+            background-color: #eef3f8;
+            border-left: 4px solid #002b5c;
+            padding: 12px 18px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            background-color: #002b5c;
+            color: #ffffff;
+            border: none;
+            padding: 9px 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #004085;
+        }
+        .btn.active {
+            background-color: #198754;
+        }
+        .btn-filter {
+            background-color: #d9534f;
+        }
+        .btn-filter.active {
+            background-color: #b02a37;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 8px 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #002b5c;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        td:nth-child(2), th:nth-child(2) {
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f4f7;
+        }
+        tr:hover {
+            background-color: #e9ecef;
+        }
+        .seat-badge-yes {
+            background-color: #d1e7dd;
+            color: #0f5132;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+        .seat-badge-no {
+            color: #adb5bd;
+            font-weight: 500;
+        }
+        @media print {
+            body { background-color: #ffffff; margin: 0; }
+            .container { box-shadow: none; padding: 0; }
+            .controls { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>MCC NEET UG 2026 – Round 4 SC Cutoff Ranks &amp; Exact Vacant Seats (MBBS Only)</h1>
+    <p class="subtitle">Candidate: RASHI (Roll No: 2306104343) | 97 Filled Choices (All India &amp; Open Seat Quota Only)</p>
+
+    <div class="summary-box">
+        <strong>Official Round 4 Stray Vacancy Seat Matrix Verification (MBBS – SC NO):</strong><br>
+        • <strong>Overall All India Quota Last R3 SC Rank:</strong> 123708 (Sikkim GMC, Gangtok) | <strong>Open Seat Quota Last R3 SC Rank:</strong> 37039 (JIPMER Karaikal)<br>
+        • <strong>Your 97 Choices Vacancy Breakdown:</strong> Exactly <strong>58 colleges</strong> on your list have vacant <code>SC NO</code> seats in Round 4 (<strong>72 total seats</strong> available).
+    </div>
+
+    <div class="controls">
+        <button class="btn active" onclick="sortTable('choice', 'asc', this)">Original Choice No. (1 → 97)</button>
+        <button class="btn" onclick="sortTable('rank', 'asc', this)">Cutoff Rank (Lowest → Highest)</button>
+        <button class="btn" onclick="sortTable('rank', 'desc', this)">Cutoff Rank (Highest → Lowest)</button>
+        <button class="btn" onclick="sortTable('seats', 'desc', this)">Vacant Seats (Highest → 0)</button>
+        <button id="filterBtn" class="btn btn-filter" onclick="setSeatFilter('vacant', this)">Show Only Vacant SC NO Seats (&gt; 0)</button>
+        <button id="zeroFilterBtn" class="btn btn-filter" onclick="setSeatFilter('zero', this)">Show Only Colleges with 0 Seats</button>
+    </div>
+
+    <table id="cutoffTable">
+        <thead>
+            <tr>
+                <th style="width: 9%;">Choice No.</th>
+                <th style="width: 49%;">Institute Name</th>
+                <th style="width: 15%;">Quota</th>
+                <th style="width: 15%;">Last SC Cutoff Rank</th>
+                <th style="width: 12%;">R4 Vacant Seats (SC NO)</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <tr data-choice="1" data-rank="18819" data-seats="2"><td>1</td><td>AIIMS Bathinda</td><td>Open Seat Quota</td><td>18819</td><td><span class="seat-badge-yes">2</span></td></tr>
+            <tr data-choice="2" data-rank="21608" data-seats="0"><td>2</td><td>AIIMS Bilaspur Changar Palasiyan, Himachal Pradesh</td><td>Open Seat Quota</td><td>21608</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="3" data-rank="31306" data-seats="0"><td>3</td><td>AIIMS Guwahati</td><td>Open Seat Quota</td><td>31306</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="4" data-rank="27349" data-seats="0"><td>4</td><td>AIIMS Rajkot</td><td>Open Seat Quota</td><td>27349</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="5" data-rank="30832" data-seats="1"><td>5</td><td>AIIMS, Deogarh</td><td>Open Seat Quota</td><td>30832</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="6" data-rank="19301" data-seats="0"><td>6</td><td>AIIMS, Gorakhpur</td><td>Open Seat Quota</td><td>19301</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="7" data-rank="27539" data-seats="0"><td>7</td><td>AIIMS, Rai Bareli</td><td>Open Seat Quota</td><td>27539</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="8" data-rank="5076" data-seats="1"><td>8</td><td>AIIMS, Rishikesh</td><td>Open Seat Quota</td><td>5076</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="9" data-rank="30245" data-seats="1"><td>9</td><td>All India Institute of Medical Sciences, Rewari</td><td>Open Seat Quota</td><td>30245</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="10" data-rank="60996" data-seats="0"><td>10</td><td>Kalpana Chawala Govt. Medical College, Karnal, Haryana</td><td>All India</td><td>60996</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="11" data-rank="82204" data-seats="0"><td>11</td><td>BPS Government Medical College for Women, Sonepat</td><td>All India</td><td>82204</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="12" data-rank="30213" data-seats="0"><td>12</td><td>Employees State Insurance Corporation Medical College, Faridabad</td><td>All India</td><td>30213 (R2)</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="13" data-rank="82363" data-seats="0"><td>13</td><td>Shaheed Hasan Khan Mewati Government Medical College, Nalhar</td><td>All India</td><td>82363</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="14" data-rank="86216" data-seats="1"><td>14</td><td>PT NEKI RAM SHARMA GOVERNMENT MEDICAL COLLEGE, BHIWANI</td><td>All India</td><td>86216</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="15" data-rank="82798" data-seats="1"><td>15</td><td>Maharishi Chyawan Medical College, Koriawas</td><td>All India</td><td>82798</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="16" data-rank="73278" data-seats="1"><td>16</td><td>Shri Atal Bihari Vajpayee Government Medical College, Faridabad</td><td>All India</td><td>73278</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="17" data-rank="27203" data-seats="0"><td>17</td><td>Central Armed Police Forces Institute of Medical Sciences Maidangarhi (AIIMS CAPFIMS) Asola Delhi</td><td>All India</td><td>27203</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="18" data-rank="29052" data-seats="0"><td>18</td><td>ESIC Medical College &amp; Hospital, Basaidarapur, New Delhi</td><td>All India</td><td>29052</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="19" data-rank="16744" data-seats="0"><td>19</td><td>Lady Hardinge Medical College, New Delhi</td><td>All India</td><td>16744 (R1/R2)</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="20" data-rank="17405" data-seats="0"><td>20</td><td>North Delhi Muncipal Corporation Medical College, Delhi</td><td>All India</td><td>17405</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="21" data-rank="35745" data-seats="0"><td>21</td><td>ESIC MEDICAL COLLEGE AND HOSPITAL, JAIPUR</td><td>All India</td><td>35745</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="22" data-rank="40383" data-seats="1"><td>22</td><td>RUHS College of Medical Sciences, Jaipur</td><td>All India</td><td>40383</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="23" data-rank="60017" data-seats="0"><td>23</td><td>Government Institute of Medical Sciences, Kasna, Greater Noida</td><td>All India</td><td>60017</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="24" data-rank="76486" data-seats="0"><td>24</td><td>Government Medical College, Jhunjhunu</td><td>All India</td><td>76486</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="25" data-rank="71690" data-seats="1"><td>25</td><td>Government Medical College, Churu</td><td>All India</td><td>71690</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="26" data-rank="64609" data-seats="0"><td>26</td><td>Shri Kalyan Govt. Medical College, Sikar, Rajasthan</td><td>All India</td><td>64609</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="27" data-rank="42997" data-seats="0"><td>27</td><td>Dr BR Ambedkar State Institute of Medical Sciences, SAS Nagar, Mohali</td><td>All India</td><td>42997</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="28" data-rank="71065" data-seats="0"><td>28</td><td>Government Medical College, Sri Ganganagar</td><td>All India</td><td>71065</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="29" data-rank="30259" data-seats="0"><td>29</td><td>Government Medical College, Patiala</td><td>All India</td><td>30259</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="30" data-rank="69820" data-seats="1"><td>30</td><td>LLRM Medical College, Meerut</td><td>All India</td><td>69820</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="31" data-rank="83745" data-seats="2"><td>31</td><td>Guru Govind Singh Medical College, Faridkot</td><td>All India</td><td>83745</td><td><span class="seat-badge-yes">2</span></td></tr>
+            <tr data-choice="32" data-rank="81484" data-seats="0"><td>32</td><td>Kalyan Singh Government Medical College</td><td>All India</td><td>81484</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="33" data-rank="83814" data-seats="0"><td>33</td><td>ESIC Medical College Ludhiana</td><td>All India</td><td>83814</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="34" data-rank="75504" data-seats="0"><td>34</td><td>Government Medical College, Alwar</td><td>All India</td><td>75504</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="35" data-rank="57388" data-seats="0"><td>35</td><td>Employees State Insurance Corporation Medical College, Alwar</td><td>All India</td><td>57388</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="36" data-rank="60346" data-seats="1"><td>36</td><td>Government Medical College, Bharatpur, Rajasthan</td><td>All India</td><td>60346</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="37" data-rank="70179" data-seats="1"><td>37</td><td>Government Medical College, Dausa</td><td>All India</td><td>70179</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="38" data-rank="55365" data-seats="1"><td>38</td><td>Jawaharlal Nehru Medical College, Ajmer</td><td>All India</td><td>55365</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="39" data-rank="80987" data-seats="2"><td>39</td><td>Shaikh-UL-Hind Maulana Mahmood Hasan Medical College, Saharanpur</td><td>All India</td><td>80987</td><td><span class="seat-badge-yes">2</span></td></tr>
+            <tr data-choice="40" data-rank="77937" data-seats="0"><td>40</td><td>Government Medical College, Dholpur</td><td>All India</td><td>77937</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="41" data-rank="48294" data-seats="2"><td>41</td><td>RNT Medical College, Udaipur</td><td>All India</td><td>48294</td><td><span class="seat-badge-yes">2</span></td></tr>
+            <tr data-choice="42" data-rank="78131" data-seats="0"><td>42</td><td>Government Medical College, Nagaur</td><td>All India</td><td>78131</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="43" data-rank="39526" data-seats="0"><td>43</td><td>Dr SN Medical College, Jodhpur</td><td>All India</td><td>39526</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="44" data-rank="52133" data-seats="0"><td>44</td><td>Dr. Ram Manohar Lohia Institute of Medical Sciences, Lucknow</td><td>All India</td><td>52133</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="45" data-rank="27149" data-seats="1"><td>45</td><td>King George Medical University, Lucknow</td><td>All India</td><td>27149</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="46" data-rank="60508" data-seats="1"><td>46</td><td>SN Medical College, Agra</td><td>All India</td><td>60508</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="47" data-rank="64886" data-seats="1"><td>47</td><td>GSVM Medical College, Kanpur</td><td>All India</td><td>64886</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="48" data-rank="74403" data-seats="0"><td>48</td><td>Uttar Pradesh University of Medical Sciences, Etawah</td><td>All India</td><td>74403</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="49" data-rank="86736" data-seats="0"><td>49</td><td>Government Medical College, Shahjahanpur, UP</td><td>All India</td><td>86736</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="50" data-rank="86722" data-seats="1"><td>50</td><td>Mahatma Vidur Autonomous State Medical College</td><td>All India</td><td>86722</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="51" data-rank="78487" data-seats="1"><td>51</td><td>Government Medical College, Amritsar</td><td>All India</td><td>78487</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="52" data-rank="88422" data-seats="0"><td>52</td><td>Rajkiya Allopathic Medical College, Bahraich, UP</td><td>All India</td><td>88422</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="53" data-rank="64331" data-seats="4"><td>53</td><td>Maharani Laxmi Bai Medical College, Jhansi</td><td>All India</td><td>64331</td><td><span class="seat-badge-yes">4</span></td></tr>
+            <tr data-choice="54" data-rank="76822" data-seats="1"><td>54</td><td>Dr. Bhimrao Ramji Ambedkar, Government Medical College, Kannauj, U.P.</td><td>All India</td><td>76822</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="55" data-rank="86954" data-seats="0"><td>55</td><td>Autonomous State Medical College, Akbarpur, Kanpur</td><td>All India</td><td>86954</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="56" data-rank="99016" data-seats="1"><td>56</td><td>Autonomous State Medical College Kushinagar</td><td>All India</td><td>99016</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="57" data-rank="95262" data-seats="0"><td>57</td><td>Autonomous State Medical College Sultanpur</td><td>All India</td><td>95262</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="58" data-rank="97200" data-seats="1"><td>58</td><td>Baba Kina Ram Autonomous State Medical College and Hospital Chandauli</td><td>All India</td><td>97200</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="59" data-rank="84684" data-seats="1"><td>59</td><td>Government Medical College, Badaun, U.P.</td><td>All India</td><td>84684</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="60" data-rank="66920" data-seats="1"><td>60</td><td>Moti Lal Nehru Medical College, Allahabad</td><td>All India</td><td>66920</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="61" data-rank="26842" data-seats="1"><td>61</td><td>Sardar Patel Medical College, Bikaner</td><td>All India</td><td>26842</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="62" data-rank="65868" data-seats="0"><td>62</td><td>Jhalawar Medical College, Jhalawar</td><td>All India</td><td>65868</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="63" data-rank="82291" data-seats="1"><td>63</td><td>Bundelkhand Medical College, Sagar</td><td>All India</td><td>82291</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="64" data-rank="86854" data-seats="1"><td>64</td><td>Government Medical College, Chhindwara, MP</td><td>All India</td><td>86854</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="65" data-rank="73557" data-seats="1"><td>65</td><td>Netaji Subhash Chandra Bose Medical College, Jabalpur</td><td>All India</td><td>73557</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="66" data-rank="81808" data-seats="1"><td>66</td><td>Government Medical College, Vidisha, MP</td><td>All India</td><td>81808</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="67" data-rank="73937" data-seats="1"><td>67</td><td>Government Medical College, Haldwani</td><td>All India</td><td>73937</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="68" data-rank="81814" data-seats="1"><td>68</td><td>Late Jagjivan Ram Goverment medical College, Pithoragarh, uttarakhand</td><td>All India</td><td>81814</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="69" data-rank="90428" data-seats="0"><td>69</td><td>Soban Singh jeena Government institute of Medical science &amp; Research, Almora</td><td>All India</td><td>90428</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="70" data-rank="60886" data-seats="1"><td>70</td><td>Dr. Radhakrishnan Government Medical College, Hamirpur, H.P</td><td>All India</td><td>60886</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="71" data-rank="62396" data-seats="1"><td>71</td><td>Shri Lal Bahadur Shastri Government Medical College, Mandi, HP</td><td>All India</td><td>62396</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="72" data-rank="71718" data-seats="0"><td>72</td><td>Gajra Raja Medical College, Gwalior</td><td>All India</td><td>71718</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="73" data-rank="30942" data-seats="1"><td>73</td><td>Government Medical College, Kota</td><td>All India</td><td>30942</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="74" data-rank="77125" data-seats="1"><td>74</td><td>Government Medical College, Dungarpur</td><td>All India</td><td>77125</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="75" data-rank="97268" data-seats="1"><td>75</td><td>Autonomous State Medical College and Hospital Gonda</td><td>All India</td><td>97268</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="76" data-rank="72065" data-seats="2"><td>76</td><td>Government Medical College, Haridwar</td><td>All India</td><td>72065</td><td><span class="seat-badge-yes">2</span></td></tr>
+            <tr data-choice="77" data-rank="77176" data-seats="1"><td>77</td><td>Shyam Shah Medical College, Rewa</td><td>All India</td><td>77176</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="78" data-rank="75443" data-seats="2"><td>78</td><td>Indira Gandhi Institute of Medical Sciences, Sheikhpura, Patna</td><td>All India</td><td>75443</td><td><span class="seat-badge-yes">2</span></td></tr>
+            <tr data-choice="79" data-rank="93833" data-seats="0"><td>79</td><td>Employees State Insurance Corporation Medical College, Patna</td><td>All India</td><td>93833</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="80" data-rank="86656" data-seats="0"><td>80</td><td>Nalanda Medical College, Patna</td><td>All India</td><td>86656</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="81" data-rank="91639" data-seats="1"><td>81</td><td>VARDHMAN INSTITUTE OF MEDICAL SCIENCES, NALANDA</td><td>All India</td><td>91639</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="82" data-rank="91293" data-seats="1"><td>82</td><td>Darbhanga Medical College, Lehriasarai</td><td>All India</td><td>91293</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="83" data-rank="94021" data-seats="2"><td>83</td><td>Government Medical College, Rajnandgaon</td><td>All India</td><td>94021</td><td><span class="seat-badge-yes">2</span></td></tr>
+            <tr data-choice="84" data-rank="45273" data-seats="1"><td>84</td><td>Medical College, Baroda</td><td>All India</td><td>45273</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="85" data-rank="60704" data-seats="1"><td>85</td><td>MP Shah Medical College, Jamnagar</td><td>All India</td><td>60704</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="86" data-rank="67430" data-seats="1"><td>86</td><td>Government Medical College, Bhavnagar</td><td>All India</td><td>67430</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="87" data-rank="108489" data-seats="1"><td>87</td><td>Government medical college, jashpur-kunkuri</td><td>All India</td><td>108489</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="88" data-rank="999999" data-seats="0"><td>88</td><td>Government Medical College L.T. Marg, Mumbai - 400001</td><td>All India</td><td>N/A</td><td><span class="seat-badge-no">0</span></td></tr>
+            <tr data-choice="89" data-rank="47251" data-seats="1"><td>89</td><td>Grant Medical College, Mumbai</td><td>All India</td><td>47251</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="90" data-rank="59879" data-seats="2"><td>90</td><td>Lokmanya Tilak Municipal Medical College, Sion, Mumbai</td><td>All India</td><td>59879</td><td><span class="seat-badge-yes">2</span></td></tr>
+            <tr data-choice="91" data-rank="68310" data-seats="3"><td>91</td><td>H.B.T. Medical College &amp; Dr. R.N. Cooper Municipal General Hospital, Juhu, Mumbai</td><td>All India</td><td>68310</td><td><span class="seat-badge-yes">3</span></td></tr>
+            <tr data-choice="92" data-rank="49067" data-seats="2"><td>92</td><td>Government Medical College, Nagpur</td><td>All India</td><td>49067</td><td><span class="seat-badge-yes">2</span></td></tr>
+            <tr data-choice="93" data-rank="72747" data-seats="1"><td>93</td><td>Indira Gandhi Medical College &amp; Hospital, Nagpur</td><td>All India</td><td>72747</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="94" data-rank="86564" data-seats="1"><td>94</td><td>Rajashree Chatrapati Shahu Maharaj Government Medical College, Kolhapur</td><td>All India</td><td>86564</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="95" data-rank="68986" data-seats="1"><td>95</td><td>Topiwala National Medical College, Mumbai</td><td>All India</td><td>68986</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="96" data-rank="77060" data-seats="1"><td>96</td><td>Rajiv Gandhi Medical College and Chhatrapati Shivaji Maharaj Hospital, Thane</td><td>All India</td><td>77060</td><td><span class="seat-badge-yes">1</span></td></tr>
+            <tr data-choice="97" data-rank="56183" data-seats="1"><td>97</td><td>Rajendra Institute of Medical Sciences, Ranchi</td><td>All India</td><td>56183</td><td><span class="seat-badge-yes">1</span></td></tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    let seatFilterMode = 'all';
+
+    function sortTable(key, direction, btnElement) {
+        const tbody = document.getElementById('tableBody');
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+
+        document.querySelectorAll('.btn:not(.btn-filter)').forEach(btn => btn.classList.remove('active'));
+        btnElement.classList.add('active');
+
+        rows.sort((a, b) => {
+            const valA = parseInt(a.getAttribute('data-' + key), 10);
+            const valB = parseInt(b.getAttribute('data-' + key), 10);
+
+            if (key === 'rank') {
+                if (valA === 999999) return 1;
+                if (valB === 999999) return -1;
+            }
+
+            if (valA === valB) {
+                return parseInt(a.getAttribute('data-choice'), 10) - parseInt(b.getAttribute('data-choice'), 10);
+            }
+
+            return direction === 'asc' ? valA - valB : valB - valA;
+        });
+
+        rows.forEach(row => tbody.appendChild(row));
+    }
+
+    let seatFilterMode = 'all';
+
+    function setSeatFilter(mode, btnElement) {
+        // Clicking the active filter again resets the table to all 97 choices.
+        seatFilterMode = seatFilterMode === mode ? 'all' : mode;
+
+        const vacancyBtn = document.getElementById('filterBtn');
+        const zeroBtn = document.getElementById('zeroFilterBtn');
+
+        vacancyBtn.classList.toggle('active', seatFilterMode === 'vacant');
+        zeroBtn.classList.toggle('active', seatFilterMode === 'zero');
+
+        vacancyBtn.textContent = seatFilterMode === 'vacant'
+            ? 'Show All 97 Choices'
+            : 'Show Only Vacant SC NO Seats (> 0)';
+
+        zeroBtn.textContent = seatFilterMode === 'zero'
+            ? 'Show All 97 Choices'
+            : 'Show Only Colleges with 0 Seats';
+
+        const rows = document.querySelectorAll('#tableBody tr');
+        rows.forEach(row => {
+            const seats = parseInt(row.getAttribute('data-seats'), 10);
+            if (seatFilterMode === 'vacant') {
+                row.style.display = seats > 0 ? '' : 'none';
+            } else if (seatFilterMode === 'zero') {
+                row.style.display = seats === 0 ? '' : 'none';
+            } else {
+                row.style.display = '';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
